@@ -1,3 +1,17 @@
+API FRONT END DO PROJETO indique um amigo, 
+
+A API BACK END FEITA NO LARAVEL E BANCO DE DADOS postgres
+
+É NECESSARIO TER INSTALAO O NODE E o angular cli 13.2.6
+
+npm install -g @angular/cli
+
+npm init
+
+npm i
+
+
+
 # IndicacaoFront
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.2.6.
