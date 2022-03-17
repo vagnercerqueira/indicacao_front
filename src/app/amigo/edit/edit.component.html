@@ -1,0 +1,76 @@
+<div class="container">
+
+    <div class="d-flex justify-content-between">
+        <h4>Editar Indicação</h4>
+        <a href="#" routerLink="/amigo/index" class="btn btn-primaryt">Voltar</a>
+    </div>
+
+    <hr>
+
+    <form [formGroup]="form" (ngSubmit)="submit()">
+
+        <div class="form-group row">
+            <div class="col-md-6 ">
+                <label for="nome">Nome:</label>
+                <input formControlName="nome" [(ngModel)]="amigo.nome" id="nome" type="text" class="form-control">
+                <div *ngIf="f['nome'].touched && f['nome'].invalid" class="alert alert-danger">
+                    <div *ngIf="f['nome'].errors?.['required']">*Obrigatorio.</div>
+                    <div *ngIf="f['nome'].errors?.['pattern']">*Nome so pode conter letras.</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <div class="col-md-6 ">
+                <label for="title">CPF:</label>
+                <input formControlName="cpf" [(ngModel)]="amigo.cpf" id="cpf" type="text" class="form-control">
+                <div *ngIf="f['cpf'].touched && f['cpf'].invalid" class="alert alert-danger">
+                    <div *ngIf="f['cpf'].errors?.['required']">*CPF obrigatorio.</div>
+                    <div *ngIf="f['cpf'].errors?.['pattern']">*CPF so pode conter numeros.</div>
+                    <div *ngIf="f['cpf'].errors?.['maxlength']">*CPF deve ter maximo 11 caracteres.</div>
+                    <div *ngIf="f['cpf'].errors?.['minlength']">*CPF deve ter minimo 11 caracteres.</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <div class="col-md-6 ">
+                <label for="telefone">Telefone:</label>
+                <input formControlName="telefone" [(ngModel)]="amigo.telefone" id="telefone" type="text"
+                    class="form-control">
+                <div *ngIf="f['telefone'].touched && f['telefone'].invalid" class="alert alert-danger">
+                    <div *ngIf="f['telefone'].errors?.['required']">*Telefone é obrigatorio.</div>
+                    <div *ngIf="f['telefone'].errors?.['pattern']">*Telefone so pode conter numeros.</div>
+                    <div *ngIf="f['telefone'].errors?.['maxlength']">*Telefone deve ter max 11 caracteres.</div>
+                    <div *ngIf="f['telefone'].errors?.['minlength']">*Telefone deve ter minimo 10 caracteres.</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <div class="col-md-6 ">
+                <label for="email">Email:</label>
+                <input formControlName="email" [(ngModel)]="amigo.email" id="email" type="text" class="form-control">
+                <div *ngIf="f['email'].touched && f['email'].invalid" class="alert alert-danger">
+                    <div *ngIf="f['email'].errors?.['required']">*Email é obrigatorio.</div>
+                    <div *ngIf="f['email'].errors?.['email']">*O email tem que ser um email valido.</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <div class="col-md-6">
+                <label for="status_indicacao_id">Status</label>
+                <select formControlName="status_indicacao_id" class="md-6 form-select"
+                    [(ngModel)]="amigo.status_indicacao_id">
+                    <option *ngFor="let stt_ind of status_indicacao" [value]="stt_ind.id">
+                        {{ stt_ind.nome }}
+                    </option>
+                </select>
+            </div>
+        </div>
+        <br>
+
+        <button class="btn btn-primary" type="submit" [disabled]="!form.valid">Alterar</button>
+    </form>
+</div>

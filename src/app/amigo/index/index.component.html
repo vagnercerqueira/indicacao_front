@@ -1,0 +1,32 @@
+<section>
+
+    <div class="d-flex justify-content-between">
+        <h4>Listar Indicação</h4>
+        <a routerLink="/amigo/create" class="btn btn-success">Adicionar indicacao</a>
+    </div>
+
+    <br>
+    <table class="table ">
+        <tr>
+            <th>Nome</th>
+            <th>CPF</th>
+            <th>Telefone</th>
+            <th>Email</th>
+            <th>Status</th>
+            <th width="220px">Ação</th>
+        </tr>
+        <tr *ngFor="let amigo of amigos">
+            <td>{{ amigo.nome }}</td>
+            <td>{{ amigo.cpf }}</td>
+            <td>{{ amigo.telefone }}</td>
+            <td>{{ amigo.email }}</td>
+            <td>{{ amigo.status_indicacao_id }}</td>
+            <td>
+                <a href="#" [routerLink]="['/amigo/', 'edit', amigo.id]"
+                    class="btn btn-outline-primary btn-sm">Editar</a>&nbsp;
+                <button type="button" (click)="deleteAmigo(amigo.id)"
+                    class="btn btn-outline-danger btn-sm">Deletar</button>
+            </td>
+        </tr>
+    </table>
+</section>
